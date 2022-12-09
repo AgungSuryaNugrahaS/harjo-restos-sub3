@@ -21,6 +21,9 @@ export default {
   async getAllRestaurants() {
     return (await dbAsync).getAll(OBJECT_STORE_NAME);
   },
+  async deleteRestaurant(id) {
+    return (await dbAsync).delete(OBJECT_STORE_NAME, id);
+  },
   async putRestaurant(restaurant) {
     // eslint-disable-next-line no-prototype-builtins
     if (!restaurant.hasOwnProperty('id')) {
@@ -28,8 +31,5 @@ export default {
     }
     // eslint-disable-next-line consistent-return
     return (await dbAsync).put(OBJECT_STORE_NAME, restaurant);
-  },
-  async deleteRestaurant(id) {
-    return (await dbAsync).delete(OBJECT_STORE_NAME, id);
   },
 };

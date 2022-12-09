@@ -6,10 +6,10 @@ Feature('Review Restaurant');
 Scenario('review restaurant', async ({ I }) => {
   I.amOnPage('/');
   I.wait(2);
-  I.waitForElement('.restaurant-item__content a');
+  I.waitForElement('.restaurant-item-content a');
 
-  I.seeElement('.restaurant-item__content a');
-  I.click(locate('.restaurant-item__content a').first());
+  I.seeElement('.restaurant-item-content a');
+  I.click(locate('.restaurant-item-content a').first());
 
   I.wait(2);
   I.waitForElement('form');

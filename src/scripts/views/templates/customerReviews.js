@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 
-const customerReviews = (custReviews) => {
+export default (custReviews) => {
   let printCustReviews = '';
   const newReview = custReviews.filter((custReview) => {
     const review = custReview.review.split(' ');
@@ -11,12 +11,12 @@ const customerReviews = (custReviews) => {
   });
   newReview.forEach((custReview) => {
     printCustReviews += `
-      <div class="restaurant-detail__review">
-        <div class="restaurant-detail__review__header">
+      <div class="restaurant-detail-review">
+        <div class="restaurant-detail-review-header">
           <p><i class="fa-solid fa-circle-user"></i> ${custReview.name}</p>
           <p>${custReview.date}</p>
         </div>
-        <div class="restaurant-detail__review__body">
+        <div class="restaurant-detail-review-body">
           <p>${custReview.review}</p>
         </div>
       </div>
@@ -24,5 +24,3 @@ const customerReviews = (custReviews) => {
   });
   return printCustReviews;
 };
-
-export default customerReviews;

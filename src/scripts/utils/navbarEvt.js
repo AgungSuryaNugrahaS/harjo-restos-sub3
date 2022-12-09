@@ -1,7 +1,7 @@
-export default ({ header, jumbotron }) => {
-  if (window.pageYOffset > jumbotron.offsetHeight - header.offsetHeight) {
-    header.classList.add('opacity');
+export default ({ navbar, jumbotron }) => {
+  if (window.pageYOffset > jumbotron.offsetHeight - navbar.offsetHeight) {
+    navbar.classList.add('opacity');
   } else {
-    header.classList.remove('opacity');
+    navbar.classList.remove('opacity');
   }
 };

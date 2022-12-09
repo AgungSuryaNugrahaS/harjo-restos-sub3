@@ -16,13 +16,14 @@ export default {
     });
   },
 
+  _closeDrawer(event, drawer) {
+    event.stopPropagation();
+    drawer.classList.remove('open');
+  },
+  
   _toggleDrawer(event, drawer) {
     event.stopPropagation();
     drawer.classList.toggle('open');
   },
 
-  _closeDrawer(event, drawer) {
-    event.stopPropagation();
-    drawer.classList.remove('open');
-  },
 };

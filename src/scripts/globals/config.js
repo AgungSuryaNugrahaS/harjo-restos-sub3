@@ -1,8 +1,8 @@
 export default {
-  API_BASE_URL: 'https://restaurant-api.dicoding.dev',
   IMAGE_BASE_URL: 'https://restaurant-api.dicoding.dev/images/medium/',
-  CACHE_NAME: +new Date().toString(),
+  API_BASE_URL: 'https://restaurant-api.dicoding.dev',
   DATABASE_NAME: 'harjos-restos-db',
-  DATABASE_VERSION: 1,
+  CACHE_NAME: +new Date().toString(),
   OBJECT_STORE_NAME: 'harjos-restos-obj',
+  DATABASE_VERSION: 1,
 };

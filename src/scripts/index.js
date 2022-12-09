@@ -10,7 +10,7 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const app = new App({
-  header: document.querySelector('.navbar'),
+  navbar: document.querySelector('.navbar'),
   button: document.querySelector('#menu'),
   drawer: document.querySelector('#navbarDrawer'),
   jumbotron: document.querySelector('.jumbotron'),

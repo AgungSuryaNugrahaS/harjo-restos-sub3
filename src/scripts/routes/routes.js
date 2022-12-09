@@ -5,5 +5,5 @@ import Home from '../views/pages/home';
 export default {
   '/': Home,
   '/detail/:id': Detail,
-  '/fav': Favorite,
+  '/favorites': Favorite,
 };

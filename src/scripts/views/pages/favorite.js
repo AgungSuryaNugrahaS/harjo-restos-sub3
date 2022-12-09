@@ -1,12 +1,12 @@
 import FavoriteRestaurantIdb from '../../data/favoriteRestaurantsDb';
 import { createRestaurantItemTemplate } from '../templates/defineTemplates';
 
-const Favorite = {
+export default {
   async render() {
     return `
         <span class="loader"></span>
         <article class="main-inner">
-          <h2>Favorite Restaurant</h2>
+          <h2>Restoran Favorit Anda</h2>
           <div class="restaurants">
           </div>
         </article>
@@ -19,7 +19,7 @@ const Favorite = {
       const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
 
       if (restaurants.length < 1) {
-        restaurantsContainer.innerHTML = "You don't have any favorite restaurant.";
+        restaurantsContainer.innerHTML = "Anda tidak memiliki restoran favorit.";
         const loader = document.querySelector('.loader');
         loader.remove();
         return;
@@ -34,5 +34,3 @@ const Favorite = {
     loader.remove();
   },
 };
-
-export default Favorite;

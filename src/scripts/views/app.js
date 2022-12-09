@@ -5,11 +5,11 @@ import navbarEvt from '../utils/navbarEvt';
 
 class App {
   constructor({
-    header, button,
+    navbar, button,
     drawer, jumbotron,
     content,
   }) {
-    this._header = header;
+    this._navbar = navbar;
     this._button = button;
     this._drawer = drawer;
     this._jumbotron = jumbotron;
@@ -29,7 +29,7 @@ class App {
 
   _navbarEvt() {
     navbarEvt({
-      header: this._header,
+      navbar: this._navbar,
       jumbotron: this._jumbotron,
     });
   }

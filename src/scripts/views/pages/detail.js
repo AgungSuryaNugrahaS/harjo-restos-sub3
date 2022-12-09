@@ -1,36 +1,36 @@
-import RestaurantSource from '../../data/apiRequests';
+import RestaurantRequest from '../../data/apiRequests';
 import UrlParser from '../../routes/URLParser';
 import LikeButtonPresenter from '../../utils/favoriteButtonPresenter';
 import ratingDetail from '../templates/detailRating';
 import {
   createRestaurantDetailInfoTop,
-  createRestaurantDetailMenus,
+  createRestaurantMenus,
   createRestaurantDetailReviews,
   createRestaurantDetailThumbnail,
   createFormReviewTemplate,
 } from '../templates/defineTemplates';
 import FavoriteRestaurantIdb from '../../data/favoriteRestaurantsDb';
 
-const Detail = {
+export default {
   async render() {
     return `
       <span class="loader"></span>
       <article class="main-inner">
-        <h2>Detail Restaurant</h2>
+        <h2>Detail Restoran</h2>
         <article class="restaurant-detail">
-          <div class="restaurant-detail__main">
-            <div class="restaurant-detail__thumbnail"></div>
-            <div class="restaurant-detail__info">
-              <div class="restaurant-detail__info__top"></div>
-              <div class="restaurant-detail__info__bottom">
-                <div id="likeButtonContainer"></div>
-                <p id="ratingDetailContainer"></p>
+          <div class="restaurant-detail-main">
+            <div class="restaurant-detail-thumbnail"></div>
+            <div class="restaurant-detail-info">
+              <div class="restaurant-detail-info-top"></div>
+              <div class="restaurant-detail-info-bottom">
+                <div id="like-button-container"></div>
+                <p id="rating-detail-section"></p>
               </div>
             </div>
           </div>
-          <div class="restaurant-detail__menus"></div>
-          <div class="restaurant-detail__reviews"></div>
-          <div class="restaurant-detail__form"></div>
+          <div class="restaurant-detail-menus"></div>
+          <div class="restaurant-detail-reviews"></div>
+          <div class="restaurant-detail-form"></div>
         </article>
       </article>
     `;
@@ -38,20 +38,19 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    let restaurant = await RestaurantSource.getRestaurantDetail(url.id);
-    restaurant = restaurant.restaurant;
-    const restaurantThumbnailContainer = document.querySelector('.restaurant-detail__thumbnail');
-    const restaurantInfoTopContainer = document.querySelector('.restaurant-detail__info__top');
-    const likeButtonContainer = document.querySelector('#likeButtonContainer');
-    const ratingDetailContainer = document.querySelector('#ratingDetailContainer');
-    const restaurantMenusContainer = document.querySelector('.restaurant-detail__menus');
-    const restaurantReviewsContainer = document.querySelector('.restaurant-detail__reviews');
-    const restaurantFormContainer = document.querySelector('.restaurant-detail__form');
+    const { restaurant } = await RestaurantRequest.getRestaurantDetail(url.id);
+    const restaurantFormContainer = document.querySelector('.restaurant-detail-form');
+    const restaurantInfoTopContainer = document.querySelector('.restaurant-detail-info-top');
+    const restaurantThumbnailContainer = document.querySelector('.restaurant-detail-thumbnail');
+    const ratingDetailSection = document.querySelector('#rating-detail-section');
+    const restaurantMenusContainer = document.querySelector('.restaurant-detail-menus');
+    const restaurantReviewsContainer = document.querySelector('.restaurant-detail-reviews');
+    const likeButtonContainer = document.querySelector('#like-button-container');
 
     restaurantThumbnailContainer.innerHTML = createRestaurantDetailThumbnail(restaurant);
     restaurantInfoTopContainer.innerHTML = createRestaurantDetailInfoTop(restaurant);
-    ratingDetailContainer.innerHTML = ratingDetail(restaurant.rating);
-    restaurantMenusContainer.innerHTML = createRestaurantDetailMenus(restaurant);
+    ratingDetailSection.innerHTML = ratingDetail(restaurant.rating);
+    restaurantMenusContainer.innerHTML = createRestaurantMenus(restaurant);
     restaurantReviewsContainer.innerHTML = createRestaurantDetailReviews(restaurant);
     restaurantFormContainer.innerHTML = createFormReviewTemplate();
 
@@ -82,12 +81,10 @@ const Detail = {
 
     formReview.addEventListener('submit', (e) => {
       e.preventDefault();
-      RestaurantSource.addNewReview({
+      RestaurantRequest.addNewReview({
         id: url.id, name: nameInput.value, review: reviewInput.value,
       });
       this.afterRender();
     });
   },
 };
-
-export default Detail;

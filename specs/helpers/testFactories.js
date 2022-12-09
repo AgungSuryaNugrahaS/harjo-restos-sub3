@@ -1,13 +1,10 @@
 import LikeButtonPresenter from '../../src/scripts/utils/favoriteButtonPresenter';
 import FavoriteRestaurantIdb from '../../src/scripts/data/favoriteRestaurantsDb';
 
-const createLikeButtonPresenterWithRestaurant = async (restaurant) => {
+export const createLikeButtonPresenterWithRestaurant = async (restaurant) => {
   await LikeButtonPresenter.init({
-    likeButtonContainer: document.querySelector('#likeButtonContainer'),
+    likeButtonContainer: document.querySelector('#like-button-container'),
     favoriteRestaurants: FavoriteRestaurantIdb,
     restaurant,
   });
 };
-
-// eslint-disable-next-line import/prefer-default-export
-export { createLikeButtonPresenterWithRestaurant };

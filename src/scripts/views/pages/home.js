@@ -1,12 +1,12 @@
-import RestaurantSource from '../../data/apiRequests';
+import RestaurantRequest from '../../data/apiRequests';
 import { createRestaurantItemTemplate } from '../templates/defineTemplates';
 
-const Home = {
+export default {
   async render() {
     return `
       <span class="loader"></span>
       <article class="main-inner">
-        <h2>List Restaurant</h2>
+        <h2>Daftar Restoran</h2>
         <div class="restaurants">
         </div>
       </article>
@@ -16,7 +16,7 @@ const Home = {
   async afterRender() {
     const restaurantsContainer = document.querySelector('.restaurants');
     try {
-      let restaurants = await RestaurantSource.getAllRestaurants();
+      let restaurants = await RestaurantRequest.getAllRestaurants();
       if (restaurants.error) {
         restaurantsContainer.innerHTML = `Error: ${restaurants.message}`;
         return;
@@ -32,5 +32,3 @@ const Home = {
     loader.remove();
   },
 };
-
-export default Home;

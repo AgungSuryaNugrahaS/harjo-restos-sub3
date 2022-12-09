@@ -1,5 +1,5 @@
 /* eslint-disable no-continue */
-const ratingDetail = (rating) => {
+export default (rating) => {
   let printRating = '';
   for (let i = 0; i < 5; i += 1) {
     if (i < Math.floor(rating)) {
@@ -15,5 +15,3 @@ const ratingDetail = (rating) => {
   }
   return printRating;
 };
-
-export default ratingDetail;

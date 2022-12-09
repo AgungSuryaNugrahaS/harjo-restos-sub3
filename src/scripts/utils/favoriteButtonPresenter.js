@@ -1,6 +1,6 @@
-import { createLikeRestaurantButtonTemplate, createUnlikeRestaurantButtonTemplate } from '../views/templates/defineTemplates';
+import { createFavoriteRestaurantButtonTemplate, createUnfavoriteRestaurantButtonTemplate } from '../views/templates/defineTemplates';
 
-const LikeButtonPresenter = {
+export default {
   async init({ likeButtonContainer, favoriteRestaurants, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
     this._restaurant = restaurant;
@@ -24,18 +24,8 @@ const LikeButtonPresenter = {
     return !!restaurant;
   },
 
-  _renderLike() {
-    this._likeButtonContainer.innerHTML = createLikeRestaurantButtonTemplate();
-
-    const likeButton = document.querySelector('#likeButton');
-    likeButton.addEventListener('click', async () => {
-      await this._favoriteRestaurants.putRestaurant(this._restaurant);
-      this._renderButton();
-    });
-  },
-
   _renderLiked() {
-    this._likeButtonContainer.innerHTML = createUnlikeRestaurantButtonTemplate();
+    this._likeButtonContainer.innerHTML = createUnfavoriteRestaurantButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
@@ -44,6 +34,13 @@ const LikeButtonPresenter = {
     });
   },
 
-};
+  _renderLike() {
+    this._likeButtonContainer.innerHTML = createFavoriteRestaurantButtonTemplate();
 
-export default LikeButtonPresenter;
+    const likeButton = document.querySelector('#likeButton');
+    likeButton.addEventListener('click', async () => {
+      await this._favoriteRestaurants.putRestaurant(this._restaurant);
+      this._renderButton();
+    });
+  },
+};
