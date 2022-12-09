@@ -1,5 +1,5 @@
 import routes from '../routes/routes';
-import UrlParser from '../routes/url-parser';
+import UrlParser from '../routes/URLParser';
 import DrawerInitiator from '../utils/drawer-initiator';
 import headerEvent from '../utils/header-event';
 

@@ -1,10 +1,8 @@
-const CONFIG = {
-  BASE_URL: 'https://restaurant-api.dicoding.dev/',
-  BASE_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/medium/',
-  CACHE_NAME: new Date().toISOString(),
-  DATABASE_NAME: 'restaurant-database',
+export default {
+  API_BASE_URL: 'https://restaurant-api.dicoding.dev',
+  IMAGE_BASE_URL: 'https://restaurant-api.dicoding.dev/images/medium/',
+  CACHE_NAME: +new Date().toString(),
+  DATABASE_NAME: 'harjos-restos-db',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'restaurants',
+  OBJECT_STORE_NAME: 'harjos-restos-obj',
 };
-
-export default CONFIG;

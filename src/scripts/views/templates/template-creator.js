@@ -5,7 +5,7 @@ import listMenu from './list-menu';
 const createRestaurantItemTemplate = (restaurant) => `
   <article class="restaurant-item">
     <div class="restaurant-item__thumbnail">
-      <img data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}"alt="${restaurant.name}" class="lazyload">
+      <img data-src="${CONFIG.IMAGE_BASE_URL + restaurant.pictureId}"alt="${restaurant.name}" class="lazyload">
       <p class="restaurant-item__rating">${restaurant.rating} <i class="fa-sharp fa-solid fa-star fa-2xs"></i></p>
     </div>
     <div class="restaurant-item__content">
@@ -18,7 +18,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 `;
 
 const createRestaurantDetailThumbnail = (restaurant) => `
-  <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId} "alt="${restaurant.name}">
+  <img src="${CONFIG.IMAGE_BASE_URL + restaurant.pictureId} "alt="${restaurant.name}">
 `;
 
 const createRestaurantDetailInfoTop = (restaurant) => ` 

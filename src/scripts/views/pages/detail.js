@@ -1,5 +1,5 @@
-import RestaurantSource from '../../data/restaurant-source';
-import UrlParser from '../../routes/url-parser';
+import RestaurantSource from '../../data/apiRequests';
+import UrlParser from '../../routes/URLParser';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import ratingDetail from '../templates/rating-detail';
 import {
@@ -9,7 +9,7 @@ import {
   createRestaurantDetailThumbnail,
   createFormReviewTemplate,
 } from '../templates/template-creator';
-import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import FavoriteRestaurantIdb from '../../data/favoriteRestaurantsDb';
 
 const Detail = {
   async render() {
@@ -38,7 +38,7 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    let restaurant = await RestaurantSource.detailRestaurant(url.id);
+    let restaurant = await RestaurantSource.getRestaurantDetail(url.id);
     restaurant = restaurant.restaurant;
     const restaurantThumbnailContainer = document.querySelector('.restaurant-detail__thumbnail');
     const restaurantInfoTopContainer = document.querySelector('.restaurant-detail__info__top');
@@ -82,7 +82,9 @@ const Detail = {
 
     formReview.addEventListener('submit', (e) => {
       e.preventDefault();
-      RestaurantSource.postReview({ id: url.id, name: nameInput.value, review: reviewInput.value });
+      RestaurantSource.addNewReview({
+        id: url.id, name: nameInput.value, review: reviewInput.value,
+      });
       this.afterRender();
     });
   },

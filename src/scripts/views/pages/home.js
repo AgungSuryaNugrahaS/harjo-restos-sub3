@@ -1,4 +1,4 @@
-import RestaurantSource from '../../data/restaurant-source';
+import RestaurantSource from '../../data/apiRequests';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -16,7 +16,7 @@ const Home = {
   async afterRender() {
     const restaurantsContainer = document.querySelector('.restaurants');
     try {
-      let restaurants = await RestaurantSource.listRestaurant();
+      let restaurants = await RestaurantSource.getAllRestaurants();
       if (restaurants.error) {
         restaurantsContainer.innerHTML = `Error: ${restaurants.message}`;
         return;

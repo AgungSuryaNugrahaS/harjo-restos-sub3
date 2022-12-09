@@ -1,25 +1,25 @@
 import { openDB } from 'idb';
-import CONFIG from '../globals/config';
+import config from '../globals/config';
 
-const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
+const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = config;
 
-const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
+const dbAsync = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(database) {
     database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
   },
 });
 
-const FavoriteRestaurantIdb = {
+export default {
   async getRestaurant(id) {
     if (!id) {
       return;
     }
 
     // eslint-disable-next-line consistent-return
-    return (await dbPromise).get(OBJECT_STORE_NAME, id);
+    return (await dbAsync).get(OBJECT_STORE_NAME, id);
   },
   async getAllRestaurants() {
-    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+    return (await dbAsync).getAll(OBJECT_STORE_NAME);
   },
   async putRestaurant(restaurant) {
     // eslint-disable-next-line no-prototype-builtins
@@ -27,11 +27,9 @@ const FavoriteRestaurantIdb = {
       return;
     }
     // eslint-disable-next-line consistent-return
-    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    return (await dbAsync).put(OBJECT_STORE_NAME, restaurant);
   },
   async deleteRestaurant(id) {
-    return (await dbPromise).delete(OBJECT_STORE_NAME, id);
+    return (await dbAsync).delete(OBJECT_STORE_NAME, id);
   },
 };
-
-export default FavoriteRestaurantIdb;
