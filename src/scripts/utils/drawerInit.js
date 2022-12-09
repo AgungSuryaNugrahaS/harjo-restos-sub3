@@ -1,13 +1,13 @@
-const DrawerInitiator = {
+export default {
   init({
     button, drawer,
-    hero, content,
+    jumbotron, content,
   }) {
     button.addEventListener('click', (event) => {
       this._toggleDrawer(event, drawer);
     });
 
-    hero.addEventListener('click', (event) => {
+    jumbotron.addEventListener('click', (event) => {
       this._closeDrawer(event, drawer);
     });
 
@@ -26,5 +26,3 @@ const DrawerInitiator = {
     drawer.classList.remove('open');
   },
 };
-
-export default DrawerInitiator;

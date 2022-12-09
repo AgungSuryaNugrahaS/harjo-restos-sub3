@@ -1,4 +1,4 @@
-const UrlParser = {
+export default {
   parseActiveUrlWithCombiner() {
     const url = window.location.hash.slice(1).toLowerCase();
     const splitedUrl = this._urlSplitter(url);
@@ -27,5 +27,3 @@ const UrlParser = {
     return resource + id + action;
   },
 };
-
-export default UrlParser;

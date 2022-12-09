@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 import customerReviews from './customer-reviews';
 import listMenu from './list-menu';
 
-const createRestaurantItemTemplate = (restaurant) => `
+export const createRestaurantItemTemplate = (restaurant) => `
   <article class="restaurant-item">
     <div class="restaurant-item__thumbnail">
       <img data-src="${CONFIG.IMAGE_BASE_URL + restaurant.pictureId}"alt="${restaurant.name}" class="lazyload">
@@ -17,17 +17,17 @@ const createRestaurantItemTemplate = (restaurant) => `
   </article>
 `;
 
-const createRestaurantDetailThumbnail = (restaurant) => `
+export const createRestaurantDetailThumbnail = (restaurant) => `
   <img src="${CONFIG.IMAGE_BASE_URL + restaurant.pictureId} "alt="${restaurant.name}">
 `;
 
-const createRestaurantDetailInfoTop = (restaurant) => ` 
+export const createRestaurantDetailInfoTop = (restaurant) => ` 
   <h3 class="restaurant-detail__info__title">${restaurant.name}</h3>
   <h4 class="restaurant-detail__info__city">${restaurant.address}, ${restaurant.city}</h4>
   <p class="restaurant-detail__info__description">${restaurant.description}</p>
 `;
 
-const createRestaurantDetailMenus = (restaurant) => `
+export const createRestaurantDetailMenus = (restaurant) => `
   <h2 class="text-center">Menu</h2>
   <div class="restaurant-detail__menus__inner">   
     <div class="restaurant-detail__menus__foods">
@@ -45,28 +45,28 @@ const createRestaurantDetailMenus = (restaurant) => `
   </div>
 `;
 
-const createRestaurantDetailReviews = (restaurant) => `
+export const createRestaurantDetailReviews = (restaurant) => `
   <h2 class="text-center">Reviews</h2>
   <div class="restaurant-detail__reviews__inner">    
     ${customerReviews(restaurant.customerReviews)}
   </div>
 `;
 
-const createLikeRestaurantButtonTemplate = () => `
+export const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="btn">
-    Add to Favorite
+    Tambahkan ke favorit
     <i class="fa-regular fa-heart"></i>
   </button>
 `;
 
-const createUnlikeRestaurantButtonTemplate = () => `
+export const createUnlikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="btn">
-    Remove to Favorite
+    Hapus dari favorit
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-const createFormReviewTemplate = () => `
+export const createFormReviewTemplate = () => `
   <h2 class="text-center">Write your review</h2>
   <form method="post">    
     <label for="nameInput">Name</label>
@@ -76,14 +76,3 @@ const createFormReviewTemplate = () => `
     <button class="btn">Submit Review</button
   </div>
 `;
-
-export {
-  createRestaurantItemTemplate,
-  createRestaurantDetailThumbnail,
-  createRestaurantDetailInfoTop,
-  createRestaurantDetailMenus,
-  createRestaurantDetailReviews,
-  createLikeRestaurantButtonTemplate,
-  createUnlikeRestaurantButtonTemplate,
-  createFormReviewTemplate,
-};

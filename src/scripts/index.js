@@ -4,7 +4,7 @@ import './components/jumbotron';
 import './components/footer';
 import '../styles/main.css';
 import '../styles/responsive.css';
-import swRegister from './utils/sw-register';
+import swRegister from './utils/swRegister';
 import App from './views/app';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
@@ -12,8 +12,8 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 const app = new App({
   header: document.querySelector('.navbar'),
   button: document.querySelector('#menu'),
-  drawer: document.querySelector('#drawer'),
-  hero: document.querySelector('.jumbotron'),
+  drawer: document.querySelector('#navbarDrawer'),
+  jumbotron: document.querySelector('.jumbotron'),
   content: document.querySelector('main'),
 });
 
@@ -27,5 +27,5 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('scroll', () => {
-  app._headerEvent();
+  app._navbarEvt();
 });

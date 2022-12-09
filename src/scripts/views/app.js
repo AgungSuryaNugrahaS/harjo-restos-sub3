@@ -1,36 +1,36 @@
 import routes from '../routes/routes';
 import UrlParser from '../routes/URLParser';
-import DrawerInitiator from '../utils/drawer-initiator';
-import headerEvent from '../utils/header-event';
+import DrawerInit from '../utils/drawerInit';
+import navbarEvt from '../utils/navbarEvt';
 
 class App {
   constructor({
     header, button,
-    drawer, hero,
+    drawer, jumbotron,
     content,
   }) {
     this._header = header;
     this._button = button;
     this._drawer = drawer;
-    this._hero = hero;
+    this._jumbotron = jumbotron;
     this._content = content;
 
     this._initialAppShell();
   }
 
   _initialAppShell() {
-    DrawerInitiator.init({
+    DrawerInit.init({
       button: this._button,
       drawer: this._drawer,
-      hero: this._hero,
+      jumbotron: this._jumbotron,
       content: this._content,
     });
   }
 
-  _headerEvent() {
-    headerEvent({
+  _navbarEvt() {
+    navbarEvt({
       header: this._header,
-      hero: this._hero,
+      jumbotron: this._jumbotron,
     });
   }
 
