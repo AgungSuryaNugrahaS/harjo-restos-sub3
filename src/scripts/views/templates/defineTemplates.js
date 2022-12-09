@@ -1,6 +1,6 @@
 import CONFIG from '../../globals/config';
-import customerReviews from './customer-reviews';
-import listMenu from './list-menu';
+import customerReviews from './customerReviews';
+import listMenu from './listMenu';
 
 export const createRestaurantItemTemplate = (restaurant) => `
   <article class="restaurant-item">
