@@ -1,6 +1,6 @@
 import RestaurantSource from '../../data/apiRequests';
 import UrlParser from '../../routes/URLParser';
-import LikeButtonPresenter from '../../utils/like-button-presenter';
+import LikeButtonPresenter from '../../utils/favoriteButtonPresenter';
 import ratingDetail from '../templates/rating-detail';
 import {
   createRestaurantDetailInfoTop,
