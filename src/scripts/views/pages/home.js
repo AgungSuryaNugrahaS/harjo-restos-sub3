@@ -1,5 +1,5 @@
 import RestaurantSource from '../../data/apiRequests';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/defineTemplates';
 
 const Home = {
   async render() {

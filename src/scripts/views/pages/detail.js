@@ -8,7 +8,7 @@ import {
   createRestaurantDetailReviews,
   createRestaurantDetailThumbnail,
   createFormReviewTemplate,
-} from '../templates/template-creator';
+} from '../templates/defineTemplates';
 import FavoriteRestaurantIdb from '../../data/favoriteRestaurantsDb';
 
 const Detail = {

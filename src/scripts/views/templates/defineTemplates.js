@@ -6,13 +6,14 @@ export const createRestaurantItemTemplate = (restaurant) => `
   <article class="restaurant-item">
     <div class="restaurant-item__thumbnail">
       <img data-src="${CONFIG.IMAGE_BASE_URL + restaurant.pictureId}"alt="${restaurant.name}" class="lazyload">
-      <p class="restaurant-item__rating">${restaurant.rating} <i class="fa-sharp fa-solid fa-star fa-2xs"></i></p>
     </div>
+
     <div class="restaurant-item__content">
       <h3 class="restaurant-item__content__title">${restaurant.name}</h3>
-      <h4 class="restaurant-item__content__city">${restaurant.city}</h4>
+      <h4 class="restaurant-item__content__city"><i class="fa-sharp fa-solid fa-location-dot"></i> ${restaurant.city}</h4>
+      <p class="restaurant">Rating : <i class="fa-sharp fa-solid fa-star"></i> ${restaurant.rating} </p>
       <p class="restaurant-item__content__description">${restaurant.description}</p>
-      <a href="/#/detail/${restaurant.id}" class="btn">See detail</a>
+      <a href="/#/detail/${restaurant.id}" class="btn">Detail</a>
     </div>
   </article>
 `;
