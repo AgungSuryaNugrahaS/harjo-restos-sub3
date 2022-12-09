@@ -1,6 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import './components/app-bar';
-import './components/hero';
+import './components/navbarComponent';
+import './components/jumbotron';
 import './components/footer';
 import '../styles/main.css';
 import '../styles/responsive.css';
@@ -10,10 +10,10 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const app = new App({
-  header: document.querySelector('.header'),
+  header: document.querySelector('.navbar'),
   button: document.querySelector('#menu'),
   drawer: document.querySelector('#drawer'),
-  hero: document.querySelector('.hero'),
+  hero: document.querySelector('.jumbotron'),
   content: document.querySelector('main'),
 });
 

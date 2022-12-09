@@ -1,9 +1,9 @@
 @media screen and (max-width: 549px) {
-  .hero {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../public/images/hero-image_2-small.jpg");
+  .jumbotron {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../public/images/hero-image_2-small.jpg");
   }
 
-  .header__nav {
+  .navbarnav {
     z-index: 100;
     background-color: #fff;
     width: 70vw;
@@ -16,16 +16,16 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
-  .header__nav.open {
+  .navbarnav.open {
     transform: translate(0, 0);
   }
 
-  .nav__list {
+  .navbarList {
     flex-direction: column;
     padding: 20px 0;
   }
 
-  .nav__item {
+  .navbarItem {
     margin: 0 auto;
     align-self: flex-end;
     border-bottom: 1px solid #e0e0e0;
@@ -34,18 +34,18 @@
     padding: 1.2em;
   }
 
-  .nav__item a {
+  .navbarItem a {
     text-align: end;
     margin-right: auto;
   }
 }
 
 @media screen and (min-width: 550px) {
-  .header__menu {
+  .navbarButton {
     display: none;
   }
 
-  .hero__tagline {
+  .jumbotronTagline {
     font-size: 32px;
   }
 
