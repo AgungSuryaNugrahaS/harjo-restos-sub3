@@ -1,11 +1,11 @@
-import FavoriteRestaurantIdb from '../../data/favoriteRestaurantsDb';
-import { createRestaurantItemTemplate } from '../templates/defineTemplates';
+import db from '../../data/favoriteRestaurantsDb';
+import { createRestaurantCard } from '../templates/defineTemplates';
 
 export default {
   async render() {
     return `
         <span class="loader"></span>
-        <article class="main-inner">
+        <article class="main-section">
           <h2>Restoran Favorit Anda</h2>
           <div class="restaurants">
           </div>
@@ -14,23 +14,21 @@ export default {
   },
 
   async afterRender() {
-    const restaurantsContainer = document.querySelector('.restaurants');
+    const restaurantsSection = document.querySelector('.restaurants');
     try {
-      const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+      const restaurants = await db.getAllRestaurants();
 
       if (restaurants.length < 1) {
-        restaurantsContainer.innerHTML = "Anda tidak memiliki restoran favorit.";
-        const loader = document.querySelector('.loader');
-        loader.remove();
+        restaurantsSection.innerHTML = 'Anda belum memiliki restoran favorit.';
+        document.querySelector('.loader').remove();
         return;
       }
       restaurants.forEach((restaurant) => {
-        restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+        restaurantsSection.innerHTML += createRestaurantCard(restaurant);
       });
-    } catch (err) {
-      restaurantsContainer.innerHTML = `Error: ${err}`;
+    } catch (error) {
+      restaurantsSection.innerHTML = `Error: ${error}`;
     }
-    const loader = document.querySelector('.loader');
-    loader.remove();
+    document.querySelector('.loader').remove();
   },
 };

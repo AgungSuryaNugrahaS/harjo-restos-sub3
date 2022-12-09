@@ -1,11 +1,11 @@
-import RestaurantRequest from '../../data/apiRequests';
-import { createRestaurantItemTemplate } from '../templates/defineTemplates';
+import apiRequests from '../../data/apiRequests';
+import { createRestaurantCard } from '../templates/defineTemplates';
 
 export default {
   async render() {
     return `
       <span class="loader"></span>
-      <article class="main-inner">
+      <article class="main-section">
         <h2>Daftar Restoran</h2>
         <div class="restaurants">
         </div>
@@ -14,21 +14,19 @@ export default {
   },
 
   async afterRender() {
-    const restaurantsContainer = document.querySelector('.restaurants');
+    const restaurantsSection = document.querySelector('.restaurants');
     try {
-      let restaurants = await RestaurantRequest.getAllRestaurants();
-      if (restaurants.error) {
-        restaurantsContainer.innerHTML = `Error: ${restaurants.message}`;
+      const { restaurants, error, message } = await apiRequests.getAllRestaurants();
+      if (error) {
+        restaurantsSection.innerHTML = `Error: ${message}`;
         return;
       }
-      restaurants = restaurants.restaurants;
       restaurants.forEach((restaurant) => {
-        restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+        restaurantsSection.innerHTML += createRestaurantCard(restaurant);
       });
-    } catch (err) {
-      restaurantsContainer.innerHTML = `Error: ${err}`;
+    } catch (error) {
+      restaurantsSection.innerHTML = `Error: ${error}`;
     }
-    const loader = document.querySelector('.loader');
-    loader.remove();
+    document.querySelector('.loader').remove();
   },
 };

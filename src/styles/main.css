@@ -107,20 +107,20 @@ a.btn {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.navbarTitle{
+.navbar-title{
   font-size: 28px;
   font-weight: 500;
   margin: 0.5em 0;
   margin-left: 5%;
 }
 
-.navbarTitle a {
+.navbar-title a {
   text-decoration: none;
   color: #000;
   padding: 1em 0;
 }
 
-.navbarButton {
+.navbar-button {
   font-size: 32px;
   width: 44px;
   padding: 5px 0;
@@ -134,7 +134,7 @@ a.btn {
   margin-right: 5%;
 }
 
-.navbarList {
+.navbar-list {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -143,19 +143,19 @@ a.btn {
   justify-content: end;
 }
 
-.navbarItem {
+.navbar-item {
   padding-left: 1.1rem;
   list-style-type: none;
 }
 
-.navbarItem a {
+.navbar-item a {
   padding: 1.1em;
   text-decoration: none;
   color: #616161;
   font-size: 16px;
 }
 
-.navbarItem a:hover {
+.navbar-item a:hover {
   text-decoration: underline;
   color: #000;
 }
@@ -172,14 +172,14 @@ a.btn {
   background-size: cover;
 }
 
-.jumbotronInner {
+.jumbotron-inner {
   width: 90%;
   margin: 0 auto;
   padding: 0 11px;
   max-width: 600px;
 }
 
-.jumbotronTagline {
+.jumbotron-tagline {
   font-size: 25px;
   font-weight: 300;
   color: #fff;
@@ -193,7 +193,7 @@ main {
 }
 
 /* Article */
-article.main-inner {
+article.main-section {
   width: 90%;
   margin: 0 auto;
 }
@@ -212,18 +212,18 @@ article h4 {
 }
 
 /* Restaurant Item */
-.restaurant-item {
+.restaurant-card {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 10px;
   margin-bottom: 20px;
   width: 100%;
 }
 
-.restaurant-item-thumbnail {
+.restaurant-card-thumbnail {
   position: relative;
 }
 
-.restaurant-item-thumbnail img {
+.restaurant-card-thumbnail img {
   width: 100%;
   height: 250px;
   border-top-right-radius: 10px;
@@ -232,26 +232,26 @@ article h4 {
   object-position: center;
 }
 
-.restaurant-item-rating i {
+.restaurant-card-rating i {
   color: gold;
   font-size: 16px;
 }
 
-.restaurant-item-content {
+.restaurant-card-content {
   padding: 0.5rem 1rem;
   margin: 0 auto;
 }
 
-.restaurant-item-content-title {
+.restaurant-card-content-title {
   font-size: 18px;
 }
 
-.restaurant-item-content-city {
+.restaurant-card-content-city {
   font-size: 16px;
   padding: 5px 0;
 }
 
-.restaurant-item-content-description {
+.restaurant-card-content-description {
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -266,8 +266,8 @@ article h4 {
 }
 
 .restaurant-detail-main,
-.restaurant-detail-menus,
-.restaurant-detail-review {
+.restaurant-menus,
+.restaurant-review-card {
   margin-bottom: 35px;
 }
 
@@ -289,13 +289,13 @@ article h4 {
   object-position: center;
 }
 
-.restaurant-detail-info {
+.restaurant-detail-desc {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.restaurant-detail-info-description {
+.restaurant-detail-desc-description {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -303,30 +303,30 @@ article h4 {
   -webkit-box-orient: vertical;
 }
 
-.restaurant-detail-info button {
+.restaurant-detail-desc button {
   cursor: pointer;
   background-color: #000;
   color: #fff;
 }
 
-.restaurant-detail-reviews-inner {
+.restaurant-review-cards-inner {
   display: grid;
   gap: 10px;
 }
 
-.restaurant-detail-review {
+.restaurant-review-card {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.restaurant-detail-review-header {
+.restaurant-review-card-header {
   display: flex;
   justify-content: space-between;
 }
 
-.restaurant-detail-menus-inner {
+.restaurant-menus-inner {
   display: flex;
   justify-content: space-around;
   max-width: 800px;

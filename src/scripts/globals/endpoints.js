@@ -1,6 +1,6 @@
-import CONFIG from './config';
+import config from './config';
 
-const { API_BASE_URL } = CONFIG;
+const { API_BASE_URL } = config;
 
 export default {
   restaurantsList: `${API_BASE_URL}/list`,

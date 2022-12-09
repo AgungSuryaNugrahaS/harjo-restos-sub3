@@ -20,7 +20,7 @@ export default {
     event.stopPropagation();
     drawer.classList.remove('open');
   },
-  
+
   _toggleDrawer(event, drawer) {
     event.stopPropagation();
     drawer.classList.toggle('open');

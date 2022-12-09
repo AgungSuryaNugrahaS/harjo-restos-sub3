@@ -6,8 +6,8 @@ class JumbotronComponent extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="jumbotron">
-        <div class="jumbotronInner">
-          <p class="jumbotronTagline">Anda Lapar Kami Senang</p>
+        <div class="jumbotron-inner">
+          <p class="jumbotron-tagline">Anda Lapar Kami Senang</p>
         </div>
       </div>
     `;

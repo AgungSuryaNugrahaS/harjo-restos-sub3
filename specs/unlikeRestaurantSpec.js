@@ -3,7 +3,7 @@ import * as TestFactories from './helpers/testFactories';
 
 describe('Unliking A Restaurant', () => {
   const addlikeButtonContainer = () => {
-    document.body.innerHTML = '<div id="like-button-container"></div>';
+    document.body.innerHTML = '<div id="favorite-button-container"></div>';
   };
 
   beforeEach(async () => {

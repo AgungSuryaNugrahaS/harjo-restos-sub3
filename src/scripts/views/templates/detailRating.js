@@ -1,17 +1,18 @@
 /* eslint-disable no-continue */
-export default (rating) => {
-  let printRating = '';
-  for (let i = 0; i < 5; i += 1) {
-    if (i < Math.floor(rating)) {
-      printRating += '<i class="fa-sharp fa-solid fa-star"></i>';
+export default (rate) => {
+  const ratingIcons = [];
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < 5; i++) {
+    if (i < Math.floor(rate)) {
+      ratingIcons.push('<i class="fa-sharp fa-solid fa-star"></i>');
       continue;
-    } else if (i === Math.floor(rating)) {
-      if (Math.round(rating) === i + 1) {
-        printRating += '<i class="fa-solid fa-star-half-stroke"></i>';
+    } else if (i === Math.floor(rate)) {
+      if (Math.round(rate) === i + 1) {
+        ratingIcons.push('<i class="fa-solid fa-star-half-stroke"></i>');
         continue;
       }
     }
-    printRating += '<i class="fa-regular fa-star"></i>';
+    ratingIcons.push('<i class="fa-regular fa-star"></i>');
   }
-  return printRating;
+  return ratingIcons.join('');
 };

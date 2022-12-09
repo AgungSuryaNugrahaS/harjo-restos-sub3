@@ -1,15 +1,16 @@
 import endpoints from '../globals/endpoints';
 
-export default class RestaurantRequest {
+export default class APIRequest {
   static async getAllRestaurants() {
     const response = await fetch(endpoints.restaurantsList);
-    const responseJson = await response.json();
-    return responseJson;
+    const data = await response.json();
+    return data;
   }
 
   static async getRestaurantDetail(id) {
     const response = await fetch(endpoints.restaurantDetail(id));
-    return response.json();
+    const data = await response.json();
+    return data;
   }
 
   static async addNewReview(review) {
