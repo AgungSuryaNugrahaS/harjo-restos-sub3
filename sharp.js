@@ -1,0 +1,30 @@
+const sharp = require('sharp');
+const fs = require('fs-extra');
+const path = require('path');
+
+(async () => {
+  const target = path.resolve(__dirname, 'src/public/images');
+  const destination = path.resolve(__dirname, 'dist/images');
+
+  if (await !fs.exists(destination)) {
+    await fs.mkdir(destination);
+  }
+
+  const readDir = await fs.readdir(target);
+
+  readDir.forEach((image) => {
+    sharp(`${target}/${image}`)
+      .resize(800)
+      .toFile(path.resolve(
+        __dirname,
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-large.jpg`,
+      ));
+
+    sharp(`${target}/${image}`)
+      .resize(480)
+      .toFile(path.resolve(
+        __dirname,
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-small.jpg`,
+      ));
+  });
+})();
