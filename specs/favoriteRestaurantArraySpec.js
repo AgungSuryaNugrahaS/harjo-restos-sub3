@@ -2,7 +2,7 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable consistent-return */
-import { itActsAsFavoriteRestaurantModel } from './contract/favoriteRestaurantContract';
+import { favoriteRestaurantModel } from './contract/favoriteRestaurantContract';
 
 let favoriteRestaurants = [];
 
@@ -24,7 +24,6 @@ const FavoriteRestaurantArray = {
       return;
     }
 
-    // pastikan id ini belum ada dalam daftar favoriteRestaurants
     if (this.getRestaurant(restaurant.id)) {
       return;
     }
@@ -33,14 +32,12 @@ const FavoriteRestaurantArray = {
   },
 
   deleteRestaurant(id) {
-    // cara boros menghapus restaurant dengan meng-copy restaurant yang ada
-    // kecuali restaurant dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((restaurant) => restaurant.id != id);
   },
 };
 
-describe('Favorite Restaurant Array Contract Test Implementation', () => {
+describe('implementasi test array restoran favorit', () => {
   afterEach(() => favoriteRestaurants = []);
 
-  itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
+  favoriteRestaurantModel(FavoriteRestaurantArray);
 });

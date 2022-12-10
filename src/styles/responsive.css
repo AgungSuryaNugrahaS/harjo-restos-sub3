@@ -4,40 +4,36 @@
   }
 
   .navbarnav {
-    z-index: 100;
+    z-index: 10;
     background-color: #fff;
     width: 70vw;
+    margin-right: 0 !important;
     height: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-70vw, 0);
+    top: 70px;
+    right: 0;
+    transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
   .navbarnav.open {
-    transform: translate(0, 0);
+    transform: translateX(70vw);
   }
 
   .navbar-list {
+    padding: 25px 0;
     flex-direction: column;
-    padding: 20px 0;
   }
 
   .navbar-item {
-    margin: 0 auto;
+    border-bottom: 1px solid #000;
     align-self: flex-end;
-    border-bottom: 1px solid #e0e0e0;
-    width: 100%;
-    text-align: right;
     padding: 1.2em;
+    width: 100%;
+    text-align: left;
   }
 
-  .navbar-item a {
-    text-align: end;
-    margin-right: auto;
-  }
 }
 
 @media screen and (min-width: 550px) {
@@ -46,7 +42,7 @@
   }
 
   .jumbotron-tagline {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .restaurant-review-cards-inner {
@@ -57,12 +53,8 @@
 @media screen and (min-width: 650px) {
   .restaurants {
     display: grid;
+    column-gap: 30px;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-
-  .restaurant-card {
-    margin-bottom: 0;
   }
 }
 
@@ -73,10 +65,7 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .restaurants {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
+  .restaurants,
   .restaurant-review-cards-inner {
     grid-template-columns: 1fr 1fr 1fr;
   }

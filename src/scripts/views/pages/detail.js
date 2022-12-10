@@ -4,17 +4,17 @@ import favoriteButtonPresenter from '../../utils/favoriteButtonPresenter';
 import detailRating from '../templates/detailRating';
 import apiRequests from '../../data/apiRequests';
 import {
-  createRestaurantDetailInfoTop,
+  createRestaurantInfo,
   createRestaurantMenus,
   createRestaurantReviews,
   createDetailRestaurantThumbnail,
-  createFormReviewTemplate,
+  createFormAddReview,
 } from '../templates/defineTemplates';
 
 export default {
   async render() {
     return `
-      <span class="loader"></span>
+      <span class="loading"></span>
       <article class="main-section">
         <h2>Detail Restoran</h2>
         <article class="restaurant-detail">
@@ -48,11 +48,11 @@ export default {
     const restaurantThumbnailSection = document.querySelector('.restaurant-detail-thumbnail');
 
     restaurantThumbnailSection.innerHTML = createDetailRestaurantThumbnail(restaurant);
-    restaurantTopSection.innerHTML = createRestaurantDetailInfoTop(restaurant);
+    restaurantTopSection.innerHTML = createRestaurantInfo(restaurant);
     ratingDetailSection.innerHTML = detailRating(restaurant.rating);
     restaurantMenuSection.innerHTML = createRestaurantMenus(restaurant);
     restaurantReviewsSection.innerHTML = createRestaurantReviews(restaurant);
-    restaurantFormSection.innerHTML = createFormReviewTemplate();
+    restaurantFormSection.innerHTML = createFormAddReview();
 
     favoriteButtonPresenter.init({
       favoriteButtonSection,
@@ -70,14 +70,14 @@ export default {
       },
     });
 
-    const loading = document.querySelector('.loader');
+    const loading = document.querySelector('.loading');
     if (loading !== null) {
       loading.remove();
     }
 
     const form = document.querySelector('form');
-    const review = document.querySelector('#reviewInput');
-    const name = document.querySelector('#nameInput');
+    const review = document.querySelector('#reviewTexts');
+    const name = document.querySelector('#reviewerName');
 
     form.addEventListener('submit', (evt) => {
       evt.preventDefault();

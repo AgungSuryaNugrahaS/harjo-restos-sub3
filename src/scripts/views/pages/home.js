@@ -4,7 +4,7 @@ import { createRestaurantCard } from '../templates/defineTemplates';
 export default {
   async render() {
     return `
-      <span class="loader"></span>
+      <span class="loading"></span>
       <article class="main-section">
         <h2>Daftar Restoran</h2>
         <div class="restaurants">
@@ -27,6 +27,6 @@ export default {
     } catch (error) {
       restaurantsSection.innerHTML = `Error: ${error}`;
     }
-    document.querySelector('.loader').remove();
+    document.querySelector('.loading').remove();
   },
 };

@@ -13,12 +13,12 @@ export const createRestaurantCard = (restaurant) => `
       <h4 class="restaurant-card-content-city"><i class="fa-sharp fa-solid fa-location-dot"></i> ${restaurant.city}</h4>
       <p class="restaurant-card-rating">Rating : <i class="fa-sharp fa-solid fa-star"></i> ${restaurant.rating} </p>
       <p class="restaurant-card-content-description">${restaurant.description}</p>
-      <a href="/#/detail/${restaurant.id}" class="btn"><i class="fa fa-solid fa-info-circle"></i> Detail</a>
+      <a href="/#/detail/${restaurant.id}" class="custom-button"><i class="fa fa-solid fa-info-circle"></i> Detail</a>
     </div>
   </article>
 `;
 
-export const createRestaurantDetailInfoTop = (restaurant) => ` 
+export const createRestaurantInfo = (restaurant) => ` 
   <h3 class="restaurant-detail-desc-title">${restaurant.name}</h3>
   <h4 class="restaurant-detail-desc-city">${restaurant.address}, ${restaurant.city}</h4>
   <p class="restaurant-detail-desc-description">${restaurant.description}</p>
@@ -54,24 +54,24 @@ export const createRestaurantReviews = (restaurant) => `
 `;
 
 export const createFavoriteRestaurantButtonTemplate = () => `
-  <button aria-label="like this restaurant" id="favoriteButton" class="btn">
+  <button aria-label="tambahkan restoran ke favorit" id="favoriteButton" class="custom-button">
     Tambahkan ke favorit <i class="fa-regular fa-heart"></i>
   </button>
 `;
 
 export const createUnfavoriteRestaurantButtonTemplate = () => `
-  <button aria-label="unlike this restaurant" id="favoriteButton" class="btn">
+  <button aria-label="hapus restoran dari favorit" id="favoriteButton" class="custom-button">
     Hapus dari favorit <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-export const createFormReviewTemplate = () => `
+export const createFormAddReview = () => `
   <h2 class="text-center">Kirimkan Review Anda</h2>
   <form method="post">    
-    <label for="nameInput">Nama</label>
-    <input type="text" id="nameInput" name="name" required>
-    <label for="reviewInput">Review</label>
-    <textarea id="reviewInput" name="review" required rows="10"></textarea>
-    <button class="btn">Kirim Review</button
-  </div>
+    <label for="reviewerName">Nama : </label>
+    <input type="text" id="reviewerName" name="name" placeholder="Masukan nama anda" required>
+    <label for="reviewTexts">Review Anda : </label>
+    <textarea id="reviewTexts" name="review" placeholder="Masukan review anda" required rows="10"></textarea>
+    <button class="custom-button">Kirim Review</button
+  </form>
 `;

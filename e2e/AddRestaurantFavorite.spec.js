@@ -1,19 +1,19 @@
 const assert = require('assert');
 
-Feature('Liking Restaurants');
+Feature('Menambahkan restoran ke daftar favorit');
 
 Before(({ I }) => {
   I.amOnPage('/#/favorites');
   I.wait(4);
 });
 
-Scenario('showing empty liked restaurant', ({ I }) => {
+Scenario('menampilkan halaman daftar restoran favorit yang kosong', ({ I }) => {
   I.wait(0.5);
   I.seeElement('.restaurants');
   I.see('Anda belum memiliki restoran favorit.', '.restaurants');
 });
 
-Scenario('liking one restaurant', async ({ I }) => {
+Scenario('menambahkan satu restoran ke daftar favorit', async ({ I }) => {
   I.wait(0.5);
   I.see('Anda belum memiliki restoran favorit.', '.restaurants');
 
@@ -22,8 +22,8 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.waitForElement('.restaurant-card-content h3');
 
   I.seeElement('.restaurant-card-content h3');
-  const firstRestaurant = locate('.restaurant-card-content h3').first();
-  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  const restaurant = locate('.restaurant-card-content h3').first();
+  const restaurantTitle = await I.grabTextFrom(restaurant);
 
   I.seeElement('.restaurant-card-content a');
   I.click(locate('.restaurant-card-content a').first());
@@ -37,10 +37,9 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.wait(0.5);
   I.waitForElement('.restaurant-card');
   I.seeElement('.restaurant-card');
-  const likedRestaurantTitle = await I.grabTextFrom('.restaurant-card-content h3');
-  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  const favoritedRestaurantTitle = await I.grabTextFrom('.restaurant-card-content h3');
+  assert.strictEqual(restaurantTitle, favoritedRestaurantTitle);
 
-  // unlike
   I.seeElement('.restaurant-card-content a');
   I.click(locate('.restaurant-card-content a').first());
 

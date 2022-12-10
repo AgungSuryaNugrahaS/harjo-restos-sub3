@@ -4,7 +4,7 @@ import { createRestaurantCard } from '../templates/defineTemplates';
 export default {
   async render() {
     return `
-        <span class="loader"></span>
+        <span class="loading"></span>
         <article class="main-section">
           <h2>Restoran Favorit Anda</h2>
           <div class="restaurants">
@@ -20,7 +20,7 @@ export default {
 
       if (restaurants.length < 1) {
         restaurantsSection.innerHTML = 'Anda belum memiliki restoran favorit.';
-        document.querySelector('.loader').remove();
+        document.querySelector('.loading').remove();
         return;
       }
       restaurants.forEach((restaurant) => {
@@ -29,6 +29,6 @@ export default {
     } catch (error) {
       restaurantsSection.innerHTML = `Error: ${error}`;
     }
-    document.querySelector('.loader').remove();
+    document.querySelector('.loading').remove();
   },
 };

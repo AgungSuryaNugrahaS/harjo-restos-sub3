@@ -1,48 +1,47 @@
 import routes from '../routes/routes';
+import navbarEvt from '../utils/navbarEvt';
 import UrlParser from '../routes/URLParser';
 import DrawerInit from '../utils/drawerInit';
-import navbarEvt from '../utils/navbarEvt';
 
 class App {
   constructor({
     navbar, button,
-    drawer, jumbotron,
-    content,
+    content, drawer,
+    jumbotron,
   }) {
+    this._content = content;
     this._navbar = navbar;
     this._button = button;
-    this._drawer = drawer;
     this._jumbotron = jumbotron;
-    this._content = content;
+    this._drawer = drawer;
 
-    this._initialAppShell();
+    this._initialApp();
   }
 
-  _initialAppShell() {
+  _initialApp() {
     DrawerInit.init({
-      button: this._button,
       drawer: this._drawer,
-      jumbotron: this._jumbotron,
       content: this._content,
+      jumbotron: this._jumbotron,
+      button: this._button,
     });
   }
 
   _navbarEvt() {
     navbarEvt({
-      navbar: this._navbar,
       jumbotron: this._jumbotron,
+      navbar: this._navbar,
     });
   }
 
-  async renderPage() {
+  async render() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+    const apps = routes[url];
+    this._content.innerHTML = await apps.render();
+    await apps.afterRender();
 
-    const skipLinkElem = document.querySelector('.skip-link');
-    skipLinkElem.addEventListener('click', (event) => {
-      event.preventDefault();
+    document.querySelector('.skip-content').addEventListener('click', (e) => {
+      e.preventDefault();
       document.querySelector('#maincontent').focus();
     });
   }

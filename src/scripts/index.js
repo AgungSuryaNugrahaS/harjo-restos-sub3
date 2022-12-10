@@ -1,31 +1,31 @@
-import 'regenerator-runtime'; /* for async await transpile */
-import './components/navbarComponent';
-import './components/jumbotron';
+import 'regenerator-runtime';
 import './components/footer';
-import '../styles/main.css';
+import './components/jumbotron';
+import './components/navbarComponent';
 import '../styles/responsive.css';
+import '../styles/main.css';
 import swRegister from './utils/swRegister';
 import App from './views/app';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
-const app = new App({
+const apps = new App({
   navbar: document.querySelector('.navbar'),
-  button: document.querySelector('#menu'),
   drawer: document.querySelector('#navbar-drawer'),
+  button: document.querySelector('#menu'),
   jumbotron: document.querySelector('.jumbotron'),
   content: document.querySelector('main'),
 });
 
+window.addEventListener('scroll', () => {
+  apps._navbarEvt();
+});
+
 window.addEventListener('hashchange', () => {
-  app.renderPage();
+  apps.render();
 });
 
 window.addEventListener('load', () => {
-  app.renderPage();
+  apps.render();
   swRegister();
-});
-
-window.addEventListener('scroll', () => {
-  app._navbarEvt();
 });

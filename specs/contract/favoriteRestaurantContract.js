@@ -1,56 +1,57 @@
-const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
-  it('should return the restaurant that has been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
+// eslint-disable-next-line import/prefer-default-export
+export const favoriteRestaurantModel = (restaurant) => {
+  it('harus menampilkan restoran yang sudah ditambahkan', async () => {
+    restaurant.putRestaurant({ id: 1 });
+    restaurant.putRestaurant({ id: 2 });
 
-    expect(await favoriteRestaurant.getRestaurant(1))
+    expect(await restaurant.getRestaurant(1))
       .toEqual({ id: 1 });
-    expect(await favoriteRestaurant.getRestaurant(2))
+    expect(await restaurant.getRestaurant(2))
       .toEqual({ id: 2 });
-    expect(await favoriteRestaurant.getRestaurant(3))
+    expect(await restaurant.getRestaurant(3))
       .toEqual(undefined);
   });
 
-  it('should refuse a restaurant from being added if it does not have the correct property', async () => {
-    favoriteRestaurant.putRestaurant({ aProperty: 'property' });
+  it('harus menolak penambahan restoran apabila restoran tidak memiliki properti yang benar ', async () => {
+    restaurant.putRestaurant({ aProperty: 'property' });
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await restaurant.getAllRestaurants())
       .toEqual([]);
   });
 
-  it('can return all of the restaurants that have been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
+  it('harus dapat mengembalikan semua restoran yang telah ditambahkan', async () => {
+    restaurant.putRestaurant({ id: 1 });
+    restaurant.putRestaurant({ id: 2 });
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await restaurant.getAllRestaurants())
       .toEqual([
         { id: 1 },
         { id: 2 },
       ]);
   });
 
-  it('should remove favorite restaurant', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
-    favoriteRestaurant.putRestaurant({ id: 3 });
+  it('harus dapat menghapus restoran favorit', async () => {
+    restaurant.putRestaurant({ id: 1 });
+    restaurant.putRestaurant({ id: 2 });
+    restaurant.putRestaurant({ id: 3 });
 
-    await favoriteRestaurant.deleteRestaurant(1);
+    await restaurant.deleteRestaurant(1);
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await restaurant.getAllRestaurants())
       .toEqual([
         { id: 2 },
         { id: 3 },
       ]);
   });
 
-  it('should handle request to remove a restaurant even though the restaurant has not been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
-    favoriteRestaurant.putRestaurant({ id: 3 });
+  it('harus menghandle permintaan untuk menghapus restoran walaupun restoran belum ditambahkan', async () => {
+    restaurant.putRestaurant({ id: 1 });
+    restaurant.putRestaurant({ id: 2 });
+    restaurant.putRestaurant({ id: 3 });
 
-    await favoriteRestaurant.deleteRestaurant(4);
+    await restaurant.deleteRestaurant(4);
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await restaurant.getAllRestaurants())
       .toEqual([
         { id: 1 },
         { id: 2 },
@@ -58,6 +59,3 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
       ]);
   });
 };
-
-// eslint-disable-next-line import/prefer-default-export
-export { itActsAsFavoriteRestaurantModel };
