@@ -328,7 +328,7 @@ article h4 {
 .restaurant-detail-form input[type="text"],
 .restaurant-detail-form textarea {
   font-family: "Roboto", sans-serif;
-  padding: 12px 20px;
+  padding: 20px;
   box-sizing: border-box;
   margin: 8px 0;
   width: 100%;

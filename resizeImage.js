@@ -6,11 +6,15 @@ const fs = require('fs-extra');
   const target = path.resolve(__dirname, 'src/public/images');
   const destination = path.resolve(__dirname, 'dist/images');
 
-  if (await !fs.exists(destination)) {
-    await fs.mkdir(destination);
+  const destinationIsExist = await fs.exists('dist/images');
+
+  if (!destinationIsExist) {
+    fs.mkdir(destination);
   }
 
   const readDir = await fs.readdir(target);
+
+  console.log(readDir);
 
   readDir.forEach((image) => {
     sharp(`${target}/${image}`)
