@@ -20,7 +20,6 @@ export default {
     for (let i = 0; i < 3; i++) {
       restaurantsSection.innerHTML += skeletonUI();
     }
-    return;
     try {
       const { restaurants, error, message } = await apiRequests.getAllRestaurants();
       if (error) {
