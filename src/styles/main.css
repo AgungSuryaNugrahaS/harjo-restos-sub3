@@ -4,10 +4,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
 }
 
@@ -182,6 +182,7 @@ main {
   padding-top: 2em;
   margin-top: 1em;
   margin-bottom: 1.2em;
+  min-height: 100vh;
 }
 
 /* Article */
@@ -209,6 +210,7 @@ article h4 {
   border-radius: 10px;
   margin-bottom: 20px;
   width: 100%;
+  height: 520px;
 }
 
 .restaurant-card-thumbnail {
@@ -222,6 +224,12 @@ article h4 {
   border-top-left-radius: 10px;
   object-fit: cover;
   object-position: center;
+}
+
+.restaurant-card .restaurant-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .restaurant-card-rating i {
@@ -247,9 +255,15 @@ article h4 {
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 160%;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+.restaurant-card .custom-button {
+  width: fit-content;
+  margin-top: 0 !important;
 }
 
 /*Restaurant card Skeleton*/
@@ -265,28 +279,28 @@ article h4 {
 .skeleton-card .restaurant-card-content {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
 }
 .skeleton-card .restaurant-card-content-title{
 width: 40%;
-height: 20px;
+height: 21px;
 }
 .skeleton-card .restaurant-card-content-city  {
   width: 30%;
-  height: 15px;
+  height: 25px;
 }
 .skeleton-card .restaurant-card-rating {
   width: 25%;
-  height: 10px;
+  height: 18px;
 }
 
 .skeleton-card .restaurant-card-content-description {
   width: 100%;
-  height: 10px;
+  height: 15px;
 }
 .skeleton-card .customBtn {
   width: 30%;
-  padding: 17px 20px;
+  height: 50px;
   border-radius: 6px;
 }
 
