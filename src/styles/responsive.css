@@ -1,0 +1,78 @@
+@media screen and (max-width: 549px) {
+  .jumbotron {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../public/images/hero-image_2-small.jpg");
+  }
+
+  .navbarnav {
+    z-index: 10;
+    background-color: #fff;
+    width: 70vw;
+    margin-right: 0 !important;
+    height: 100%;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  .navbarnav.open {
+    transform: translateX(70vw);
+  }
+
+  .navbar-list {
+    padding: 25px 0;
+    flex-direction: column;
+  }
+
+  .navbar-item {
+    border-bottom: 1px solid #000;
+    align-self: flex-end;
+    padding: 1.2em;
+    width: 100%;
+    text-align: left;
+  }
+
+}
+
+@media screen and (min-width: 550px) {
+  .navbar-button {
+    display: none;
+  }
+
+  .jumbotron-tagline {
+    font-size: 28px;
+  }
+
+  .restaurant-review-cards-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .restaurants {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .restaurant-detail-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .restaurants,
+  .restaurant-review-cards-inner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  article.main-section {
+    max-width: 1200px;
+  }
+}
